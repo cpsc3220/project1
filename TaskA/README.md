@@ -1,5 +1,5 @@
 ---
-title: 'Project 1a: Text Sorting'
+'Project 1a: Text Sorting'
 ---
 
 You will write a simple sorting program. This program should be invoked
