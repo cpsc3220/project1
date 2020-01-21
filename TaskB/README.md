@@ -1,5 +1,5 @@
 ---
-'Project 1b: XV6 Intro - Syscall'
+Project 1b: XV6 Intro - Syscall
 ---
 
 We'll be doing kernel hacking projects in xv6. xv6 is a port of a
