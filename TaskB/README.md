@@ -2,8 +2,8 @@
 'Project 1b: XV6 Intro - Syscall'
 ---
 
-We'll be doing kernel hacking projects in xv6. Xv6 is a port of a
-classic version of unix to a modern processor, Intel's x86. It is a much
+We'll be doing kernel hacking projects in xv6. xv6 is a port of a
+classic version of unix to xv6 and risc-v architectures. It is a much
 smaller and simpler kernel than the Linux kernel, making it more
 accessible for projects and study.
 
@@ -44,21 +44,16 @@ system at the time of the call.
 **The Code**
 
  \
-The source code for XV6 (and associated README) can be found in
-<https://github.com/tallendev/xv6-cuspring2019>. Everything you need to
-build and run and even debug the kernel is in there.
+You may find the first few chapters of the following book useful:
+https://pdos.csail.mit.edu/6.828/2019/xv6/book-riscv-rev0.pdf
 
-You may also find the following readings about xv6 useful, written by
-the same team that ported xv6 to x86. See the course web page for this
-and other resources. Particularly useful for this project: Chapters 0,
-1, 2.
 
 Remember that xv6 is *not* Linux. Every OS provides a standard library:
 a grouping of functions for interacting with the operating system and
 doing basic programming tasks. You may be familiar with the GNU C
 standard library, and you probably used it in Project 1a. In xv6, you
 will not have access to this standard library. xv6 does provide some
-utility functions for you, ad syscalls for interacting with the kernel.
+utility functions for you, and syscalls for interacting with the kernel.
 In practice, this means that if you find yourself writing system-scope
 includes (`#include <…>`, not `#include ".."`), you have made a mistake.
 Be careful, because your code may still compile but not run correctly in

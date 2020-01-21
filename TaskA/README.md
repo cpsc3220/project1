@@ -159,12 +159,6 @@ Use git/github to backup version of your work! That is its purpose.
 -   The last commit to the `master` branch before the deadline will be treated as the submission. You may chose 
     to do your work on another branch, but be sure to merge it with master before the deadline.
 
--   Your archive should include these files **only**:
-
-        fastsort.c
-        Makefile
-        README
-
 -   Your **Makefile** can be the one provided, or your own. However, I
     should be able to use the `make` command in the shell with no
     additional arguments to compile your program.
