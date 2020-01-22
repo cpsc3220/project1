@@ -24,14 +24,14 @@ Then, log in to GitHub and go to [github.com/settings/ssh](https://github.com/se
 ## 1.3 RISC-V Development Tools
 In this course, you will work on several project on top of the [XV6 for RISC-V](https://github.com/mit-pdos/xv6-riscv) teaching operating system developed at MIT. To work with the RISC-V architecture on a X86 system, you'll need the RISC-V versions of a couple different tools: QEMU, GDB, GCC, and Binutils.
 
-We have provided a bash script [install-riscv-tools.sh] which is included in the handout subdirectory. Simply run it under your home directory on any lab machine. You should see two generated directories: gnu and qemu. The script also does a simple test on the executables inside these directories. <!--- (https://github.com/cpsc3220/project1/blob/master/handout/install-riscv-tools.sh) which you can use to install these tools on a lab machine under your home directory.--->
+We have provided a bash script [install-riscv-tools.sh] which is included in the handout subdirectory. Simply run it under your home directory on any lab machine. You should see two generated directories: gnu and qemu. The script also does a simple test on the executables inside these directories. <!-- (https://github.com/cpsc3220/project1/blob/master/handout/install-riscv-tools.sh) which you can use to install these tools on a lab machine under your home directory.-->
 
-<!---
+<!--
 <pre><code>
 $ wget https://github.com/cpsc3220/project1/blob/master/handout/install-riscv-tools.sh
 $ bash install-riscv-tools.sh
 </code></pre>
---->
+-->
 
 **Attention: make sure you pass the simple tests before you proceed to Task B**
 
