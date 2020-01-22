@@ -134,7 +134,7 @@ better if you find your bugs first, before we do.
 
 - Use git/github to backup version of your work! That is its purpose. 
 
-**Submission**
+## Submission
 -   The last commit to the `master` branch before the deadline will be treated as the submission. You may chose to do your work on another branch, but be sure to merge it with master before the deadline.
 
 -   Your **Makefile** can be the one provided, or your own. However, I
