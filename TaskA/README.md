@@ -40,7 +40,7 @@ but this line is second
 </pre>
 
 ## Breaking Ties
-In certain cases, there will be a tie among two or more lines. For example, when sorting the lines in `test1.txt` using the third word, the lines "`this line is first`" and "`finally there is this line`" have a tie becase both of their third word are "`is`". In this situation, you can use the original line number as a tie breaker. Here, the line number of "`this line is first`" is `0`, which is smaller than `2`, the line number of "`finally there is this line`". Therefore, "`this line is first`" will be placed before 
+In certain cases, there will be a tie among two or more lines. For example, when sorting the lines in `test1.txt` using the third word, the lines "`this line is first`" and "`finally there is this line`" have a tie because both of their third words are "`is`". In this situation, you can use the original line number as a tie breaker. Here, the line number of "`this line is first`" is `0`, which is smaller than `2`, the line number of "`finally there is this line`". Therefore, "`this line is first`" will be placed before 
 "`finally there is this line`" in the sorted output. Thus, the command ```./fastsort -3 test1.txt``` will print the following results to the screen:
 
 <pre>
@@ -60,10 +60,9 @@ but this line is second
 
 - **Space character**: You can assume only space characters will be used to separate words in the input. However, your program should correctly handle the case where there are two or more spaces between words.
 
-- **Not enough words**:If the command specifies an option argument `-n` but one line of the inut file does not have `n` words, you can use the last word of that line as the key to sort that line.
+- **Not enough words**: If the command specifies an option argument `-n` but one line of the inut file does not have `n` words, you can use the last word of that line as the key to sort that line.
 
-- **Empty line**: You should use an empty string to sort any empty lines
-    (i.e., lines that are just a newline or spaces and a newline
+- **Empty line**: You should use an empty string to sort any empty lines (i.e., lines that are just a newline or spaces and a newline
     character).
 
 - **File length**: May be pretty long! However, no need to implement a
@@ -98,10 +97,10 @@ but this line is second
 
 -   To sort the data, use any sort algorithm that you would like to use. You can also use a sort function like `qsort()` included in the standard library on Linux.
 
--   To break lines into words, you may use `strtok()`. Although, if you choose to use `stroke()`, you must realize that `strtoke()` is destructive and will change the  contents of the lines. Thus, if you use it, make sure to make a copy of the line to output. Alternatively, you may find it might be easier by just writing a function that extracts the `n-th` word for a given line.
+-   To break lines into words, you may use `strtok()`. Although, if you choose to use `strtok()`, you must realize that it is destructive and will change the  contents of the lines. Thus, if you use it, make sure to make a copy of the line to output. Alternatively, you may find it might be easier by just writing a function that extracts the `n-th` word for a given line.
 
 -   The routine `atoi()` (or better yet, `strtol()`) can be used to
-    transform a string into an integer.
+    transform a string into an integer. You can use it to parse the command argument -n.
 
 -   To exit, call `exit()` with a single argument. This argument to
     `exit()` is then available to the user to see if the program
@@ -134,7 +133,7 @@ can be.
 - Use git/github to save each version of your work! 
 
 ## Submission
--   The last commit to the `master` branch before the deadline will be treated as the submission. You may chose to do your work on another branch, but be sure to merge it with master before the deadline.
+-   The last commit to the `master` branch will be treated as the submission. You may choose to do your work on another branch, but be sure to merge it with master before the deadline. If your last commit is later than the due time, you will receive late penalties. 
 
 -   Your **Makefile** can be the one provided, or your own. However, I
     should be able to use the `make` command in the shell with no
