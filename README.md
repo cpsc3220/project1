@@ -46,7 +46,12 @@ If you are unfamiliar with some of these tools, you can find some tutorial onlin
 
 # 3. Your Assignment
 
-## 3.1 
+This project consists two tasks:
+
+## Task A: Text Sorting
+## Task B: XV6 System Call
+
+You can find the descriptions and requirements for these two tasks in the TaskA and TaskB folders.
 
 # 4. Submission
 
