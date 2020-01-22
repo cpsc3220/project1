@@ -3,7 +3,7 @@
 # 1. Setup
 
 ## 1.1 GitHub
-Code submission for all projects in the class will be handled via GitHub classrooms. Your account on canvas has been connected to github. Each student will automatically have private repositories for the projects. <!--- Therefore, you must have a GitHub account. We will provide you with private repositories for all your projects. --->
+Code submission for all projects in the class will be handled via GitHub classrooms. Your account on canvas has been connected to github. Each student will automatically have private repositories for the projects. <!-- Therefore, you must have a GitHub account. We will provide you with private repositories for all your projects. -->
 
 You **must not create any public repositories** for storing your code. If you have discovered repositories with CPSC/ECE 3200 solutions, please notify the instructor. 
 
