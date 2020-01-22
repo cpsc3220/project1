@@ -25,14 +25,14 @@ but this line is second
 finally there is this line
 </pre>
 
-Because "but" is alphabetically before "finally" and "finally" is alphabetically before "this", the command ```./fastsort text1.txt``` will print the following results to the screen:
+Because "but" is alphabetically before "finally" and "finally" is alphabetically before "this", the command ```./fastsort test1.txt``` will print the following results to the screen:
 <pre>
 but this line is second
 finally there is this line
 this line is first
 </pre>
 
-Similarly, the command ```./fastsort -2 text1.txt``` will print the following results to the screen:
+Similarly, the command ```./fastsort -2 test1.txt``` will print the following results to the screen:
 <pre>
 this line is first
 finally there is this line
@@ -40,7 +40,8 @@ but this line is second
 </pre>
 
 ## Breaking Ties
-In certain cases, there will be a tie among two or more lines.  In this situation, you can use the subsequent word each line as a tie breaker. For example, when sorting the lines using the third word, two lines contains the word "is". However, the subsequent word (i.e., the 4th word) of the two lines are "first" and "this" can break the tie. The same method can be used repeatedly to break the ties. Thus, the command ```./fastsort -2 text1.txt``` will print the following results to the screen:
+In certain cases, there will be a tie among two or more lines. For example, when sorting the lines in `test1.txt` using the third word, the lines "`this line is first`" and "`finally there is this line`" have a tie becase both of their third word are "`is`". In this situation, you can use the original line number as a tie breaker. Here, because the line number of "`this line is first`" is `0`, which is smaller than `2`, the line number of "`finally there is this line`", "`this line is first`" will be placed before 
+"`finally there is this line`" in the sorted output. Thus, the command ```./fastsort -3 test1.txt``` will print the following results to the screen:
 <pre>
 this line is first
 finally there is this line
@@ -94,12 +95,9 @@ but this line is second
 
 -   To compare strings, use the `strcmp()` library call.
 
--   To sort the data, use any sort that you'd like to use. An easy way
-    to go is to use the library routine `qsort().`
+-   To sort the data, use any sort algorithm that you would like to use. You can also use a sort function like `qsort()` included in the standard library on Linux.
 
--   To chop lines into words, you may use `strtok()`. Be careful,
-    though; it is destructive and will change the contents of the lines.
-    Thus, if you use it, make sure to make a copy of the line to output.
+-   To break lines into words, you may use `strtok()`. Although, if you choose to use `stroke()`, you must realize that `strtoke()` is destructive and will change the  contents of the lines. Thus, if you use it, make sure to make a copy of the line to output. Alternatively, you may find it might be easier by just writing a function that extracts the `n-th` word for a given line.
 
 -   The routine `atoi()` (or better yet, `strtol()`) can be used to
     transform a string into an integer.
@@ -120,19 +118,19 @@ but this line is second
 
 ## General Advice
 
+- Design first before writing the code. Prepare some use/test cases, break the task into serveral smaller tasks, and think about what data structure serves the tasks better than others.
+
 - Start small, and get things working incrementally. For example, first
 get a program that simply reads in the input file, one line at a time,
-and prints out what it reads in. Then, slowly add features and test them
-as you go.
+and prints out what it reads in. After each stage, test the code to make sure it works as expected. Then, slowly add features and test them as you go.
 
-- Testing is critical. One great programmer said you have to write 5-10
+- Testing is crucial. One great programmer said you have to write 5-10
 lines of test code for every line of code you produce; testing your code
 to make sure it works is crucial. Write tests to see if your code
 handles all the cases you think it should. Be as comprehensive as you
-can be. Of course, when grading your projects, we will be. Thus, it is
-better if you find your bugs first, before we do.
+can be. 
 
-- Use git/github to backup version of your work! That is its purpose. 
+- Use git/github to save each version of your work! 
 
 **Submission**
 -   The last commit to the `master` branch before the deadline will be treated as the submission. You may chose to do your work on another branch, but be sure to merge it with master before the deadline.
