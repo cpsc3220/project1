@@ -40,8 +40,9 @@ but this line is second
 </pre>
 
 ## Breaking Ties
-In certain cases, there will be a tie among two or more lines. For example, when sorting the lines in `test1.txt` using the third word, the lines "`this line is first`" and "`finally there is this line`" have a tie becase both of their third word are "`is`". In this situation, you can use the original line number as a tie breaker. Here, because the line number of "`this line is first`" is `0`, which is smaller than `2`, the line number of "`finally there is this line`", "`this line is first`" will be placed before 
+In certain cases, there will be a tie among two or more lines. For example, when sorting the lines in `test1.txt` using the third word, the lines "`this line is first`" and "`finally there is this line`" have a tie becase both of their third word are "`is`". In this situation, you can use the original line number as a tie breaker. Here, the line number of "`this line is first`" is `0`, which is smaller than `2`, the line number of "`finally there is this line`". Therefore, "`this line is first`" will be placed before 
 "`finally there is this line`" in the sorted output. Thus, the command ```./fastsort -3 test1.txt``` will print the following results to the screen:
+
 <pre>
 this line is first
 finally there is this line
@@ -115,7 +116,7 @@ but this line is second
 -   If you don't know how to use these functions, use the man pages. For
     example, typing `man qsort` at the command line will give you a lot
     of information on how to use the library sorting routine.
-
+    
 ## General Advice
 
 - Design first before writing the code. Prepare some use/test cases, break the task into serveral smaller tasks, and think about what data structure serves the tasks better than others.
@@ -132,7 +133,7 @@ can be.
 
 - Use git/github to save each version of your work! 
 
-**Submission**
+## Submission
 -   The last commit to the `master` branch before the deadline will be treated as the submission. You may chose to do your work on another branch, but be sure to merge it with master before the deadline.
 
 -   Your **Makefile** can be the one provided, or your own. However, I
