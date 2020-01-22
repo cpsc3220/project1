@@ -1,60 +1,95 @@
----
-Project 1a: Text Sorting
----
+# Project 1a: Text Sorting
 
-You will write a simple sorting program. This program should be invoked
-as follows:
+## Requirement
+You will write a text sorting program named **fastsort** that sorts lines of text using the word at a specified location in each line.
 
-`./fastsort [ -3] file`
+This program must support the following usages:
 
-The above line means the users typed in the name of the sorting program
-./fastsort and gave it one or two inputs. If just one input is given, it
-should be the input file. The input file should be sorted, and the
-sorted output printed to the screen; it is assumed that the file is a
-text file (full of ASCII characters) and, when no other arguments are
-given, the sorting should be over the first word in each line. If the
-optional argument is included ( -3 in the example), the program should
-sort the text input file using the specified word as the key to sort
-upon (with -3 , the program should find the 3rd word in each line and
-sort the lines based upon that).
+```./fastsort [-n] filename```
 
- \
-**Examples:**
+Here, "**n**" is an integer and the option argument "**-n**" specifies the location of the word that will be used to sort the lines of text. For example, the command 
 
- \
-Let's say you have the following file:
+```./fastsort -3 filename``` will use the third word of each line to sort the lines contained in the file "**filename**".
 
-    this line is first
-    but this line is second
-    finally there is this line
+The option argument "**-n**" is optional. If the option is not provided in the command line, the program will use the first word of each line to sort the lines.
 
-If you run your fastsort and give it this file as input, it should
-print:
+The program shall print the sorted output to the screen(i.e., stdout).
 
-    but this line is second
-    finally there is this line
-    this line is first
+## Examples
 
-because "but" is alphabetically before "finally" is before "this". If,
-however, you pass in a flag to sort a different key, you'll get a
-different output. For example, if you call fastsort -2 on this file, you
-should get:
+Let's say you have a text file `test1.txt` that contains the following lines:
 
-    this line is first
-    finally there is this line
-    but this line is second
+<pre>
+this line is first
+but this line is second
+finally there is this line
+</pre>
 
-because "line" comes before "there" comes before "this". Yes, we are
-assuming -2 means the second word in each line (like most people would,
-except computer scientists who always want to start at 0).
+Because "but" is alphabetically before "finally" and "finally" is alphabetically before "this", the command ```./fastsort text1.txt``` will print the following results to the screen:
+<pre>
+but this line is second
+finally there is this line
+this line is first
+</pre>
 
-**Hints**
+Similarly, the command ```./fastsort -2 text1.txt``` will print the following results to the screen:
+<pre>
+this line is first
+finally there is this line
+but this line is second
+</pre>
 
--   In your sorting program, you should just use `fopen()` to open the
+## Breaking Ties
+In certain cases, there will be a tie among two or more lines.  In this situation, you can use the subsequent word each line as a tie breaker. For example, when sorting the lines using the third word, two lines contains the word "is". However, the subsequent word (i.e., the 4th word) of the two lines are "first" and "this" can break the tie. The same method can be used repeatedly to break the ties. Thus, the command ```./fastsort -2 text1.txt``` will print the following results to the screen:
+<pre>
+this line is first
+finally there is this line
+but this line is second
+</pre>
+
+## Assumptions and Errors
+
+- **Exit code**: The program should exit with zero upon success and with 1 upon errors.
+
+- **Max line length**: The max line length of the text will be 128. If you get a line longer than this, print "`Line too long`" to standard error and exit with 1.
+
+- **Wrong arguments**: If the command line consists of more than two arguments, or exactly two arguments but the first one does not match the format of a dash followed 
+    by an integer, you should EXACTLY print "`Error: Bad command line parameters`" to standard error and exit with 1.
+
+- **Space character**: You can assume only space characters will be used to separate words in the input. However, your program should correctly handle the case where there are two or more spaces between words.
+
+- **Not enough words**:If the command specifies an option argument `-n` but one line of the inut file does not have `n` words, you can use the last word of that line as the key to sort that line.
+
+- **Empty line**: You should use an empty string to sort any empty lines
+    (i.e., lines that are just a newline or spaces and a newline
+    character).
+
+- **File length**: May be pretty long! However, no need to implement a
+    fancy two-pass sort or anything like that; the data set will fit
+    into memory and you shouldn't have to do anything special to handle
+    this. However, if `malloc()` does fail, print "`malloc failed`"
+    to standard error and exit with 1.
+
+- **Invalid files**: If the user specifies an input file that you cannot
+    open (for whatever reason), the sort should EXACTLY print (to
+    standard error): "`Error: Cannot open file [filename] with no extra spaces`"
+    (you should replace the `[filename]` with actual filename provided in the command line) and then exit with return 1.
+
+- **Important**: Upon any error, you should print the error message to stderr
+    (standard error) and not stdout (standard output). This is
+    accomplished in your C code as follows:
+
+    `fprintf(stderr, “whatever error message\n”);`
+
+- **Do not print anything to stdout except your sorted output.** 
+
+## Hints
+
+-   In your sorting program, you can just use `fopen()` to open the
     input file, `fgets()` to read each line of the file, and `fclose()`
     when you are done with the input file.
 
--   If you want to figure out how big in the input file is before
+-   If you want to figure out how big the input file is before
     reading it in, use the `stat()` or `fstat()` calls.
 
 -   To compare strings, use the `strcmp()` library call.
@@ -62,7 +97,7 @@ except computer scientists who always want to start at 0).
 -   To sort the data, use any sort that you'd like to use. An easy way
     to go is to use the library routine `qsort().`
 
--   To chop lines into words, you could use `strtok()`. Be careful,
+-   To chop lines into words, you may use `strtok()`. Be careful,
     though; it is destructive and will change the contents of the lines.
     Thus, if you use it, make sure to make a copy of the line to output.
 
@@ -83,81 +118,24 @@ except computer scientists who always want to start at 0).
     example, typing `man qsort` at the command line will give you a lot
     of information on how to use the library sorting routine.
 
-**Assumptions and Errors**
+## General Advice
 
--   The return code upon success is zero. When the program runs normally
-    and no errors are encountered, you should return an error code of 0.
-
--   Only space characters (i.e., what you get when you hit spacebar)
-    will be used to separate words in the input. Thus, you don't have to
-    worry about tabs or other whitespace. However, your program should
-    correctly handle the case where there are two or more spaces between
-    words, i.e., it should treat that as one big separator between the
-    words.
-
--   Max line length will be 128. If you get a line longer than this
-    (detected by the lack of a newline character in the last position),
-    please print `Line too long` to standard error and exit with return
-    code 1.
-
--   You should check the arguments of fastsort carefully. If more than
-    two arguments are passed, or two are passed but the second does not
-    fit the format of a dash followed by a number, you should EXACTLY
-    print (to standard error):
-
-    `Error: Bad command line parameters and exit with return code 1.`
-
--   Key does not exist on one line of input file: If the specified key
-    does not exist on a particular line of the input file, you should
-    just use the last word of that line as the key. For example, if the
-    user wants to sort on the 4th word ( -4 ), and the sort encounters a
-    line like this ( sample line ), the sort should use the word line to
-    sort that line.
-
--   Empty line: You should use an empty string to sort any empty lines
-    (i.e., lines that are just a newline or spaces and a newline
-    character).
-
--   File length: May be pretty long! However, no need to implement a
-    fancy two-pass sort or anything like that; the data set will fit
-    into memory and you shouldn't have to do anything special to handle
-    this. However, if `malloc()` does fail, please print malloc failed
-    to standard error and exit with code 1.
-
--   Invalid files: If the user specifies an input file that you cannot
-    open (for whatever reason), the sort should EXACTLY print (to
-    standard error): Error: Cannot open file foo with no extra spaces
-    (if the file was named foo ) and then exit with return code 1.
-
--   Important: On any error code, you should print the error to the
-    screen using `fprintf()`, and send the error message to stderr
-    (standard error) and not stdout (standard output). This is
-    accomplished in your C code as follows:
-
-    `fprintf(stderr, “whatever error message\n”);`
-
--   **Do not print anything to stdout except for your sorted output.**
-
-**General Advice**
-
- \
-Start small, and get things working incrementally. For example, first
+- Start small, and get things working incrementally. For example, first
 get a program that simply reads in the input file, one line at a time,
 and prints out what it reads in. Then, slowly add features and test them
 as you go.
 
-Testing is critical. One great programmer said you have to write 5-10
+- Testing is critical. One great programmer said you have to write 5-10
 lines of test code for every line of code you produce; testing your code
 to make sure it works is crucial. Write tests to see if your code
 handles all the cases you think it should. Be as comprehensive as you
 can be. Of course, when grading your projects, we will be. Thus, it is
 better if you find your bugs first, before we do.
 
-Use git/github to backup version of your work! That is its purpose. 
+- Use git/github to backup version of your work! That is its purpose. 
 
 **Submission**
--   The last commit to the `master` branch before the deadline will be treated as the submission. You may chose 
-    to do your work on another branch, but be sure to merge it with master before the deadline.
+-   The last commit to the `master` branch before the deadline will be treated as the submission. You may chose to do your work on another branch, but be sure to merge it with master before the deadline.
 
 -   Your **Makefile** can be the one provided, or your own. However, I
     should be able to use the `make` command in the shell with no
@@ -169,8 +147,6 @@ Use git/github to backup version of your work! That is its purpose.
 -   Your program must run on the lab 110 machines, at minimum.
 
 -   Your program must be written in C (not C++ or other languages).
-
--   Submit the archive via Canvas before the deadline.
 
 -   Your sort should be relatively fast. GNU `sort` can sort millions of
     lines in several seconds or less. Yours should not be much slower
