@@ -40,7 +40,7 @@ but this line is second
 </pre>
 
 ## Breaking Ties
-In certain cases, there will be a tie among two or more lines.  In this situation, you can use the subsequent word each line as a tie breaker. For example, when sorting the lines using the third word, two lines contains the word "is". However, the subsequent word (i.e., the 4th word) of the two lines are "first" and "this" can break the tie. The same method can be used repeatedly to break the ties. Thus, the command ```./fastsort -2 text1.txt``` will print the following results to the screen:
+In certain cases, there will be a tie among two or more lines. In this situation, you can use the subsequent word each line as a tie breaker. For example, when sorting the lines using the third word, two lines contains the word "is". However, the subsequent word (i.e., the 4th word) of the two lines are "first" and "this" can break the tie. The same method can be used repeatedly to break the ties. Thus, the command ```./fastsort -2 text1.txt``` will print the following results to the screen:
 <pre>
 this line is first
 finally there is this line
@@ -117,7 +117,7 @@ but this line is second
 -   If you don't know how to use these functions, use the man pages. For
     example, typing `man qsort` at the command line will give you a lot
     of information on how to use the library sorting routine.
-
+    
 ## General Advice
 
 - Start small, and get things working incrementally. For example, first
