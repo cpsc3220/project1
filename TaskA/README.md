@@ -7,7 +7,7 @@ This program must support the following usages:
 
 ```./fastsort [-n] filename```
 
-Here, "**n**" is an integer and the option argument "**-n**" specifies the location of the word that will be used to sort the lines of text. For example, the command 
+Note [] means the argument inside is optional. You don't really type [] in the command line. Here, "**n**" is an integer and the option argument "**-n**" specifies the location of the word that will be used to sort the lines of text. For example, the command 
 
 ```./fastsort -3 filename``` will use the third word of each line to sort the lines contained in the file "**filename**".
 
