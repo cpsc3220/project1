@@ -28,7 +28,7 @@ source ~/.bashrc
 
 # extract qemu
 wait
-xz --decompress --threads=`nproc --all` qemu-4.2.0.tar.xz
+xz --decompress  qemu-4.2.0.tar.xz
 tar xf qemu-4.2.0.tar --checkpoint=.500
 cd qemu-4.2.0
 #build and install qemu
