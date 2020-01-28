@@ -20,7 +20,7 @@ rm -f riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz &
 # setshell environment variables
 echo "cpsc3200(){" >> ~/.bashrc
 echo "   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QEMUDIR/lib:$GCCDIR/lib" >> ~/.bashrc
-echo "   export PATH=$PATH:$QEMUDIR/bin:$GCCDIR/bin" >> ~/.bashrc
+echo "   export PATH=$QEMUDIR/bin:$GCCDIR/bin:$PATH" >> ~/.bashrc
 echo "}" >> ~/.bashrc
 echo "cpsc3200" >> ~/.bashrc
 sync
