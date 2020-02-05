@@ -73,7 +73,7 @@ but this line is second
 
 - **Invalid files**: If the user specifies an input file that you cannot
     open (for whatever reason), the sort should EXACTLY print (to
-    standard error): "`Error: Cannot open file [filename] with no extra spaces`"
+    standard error): "`Error: Cannot open file [filename]`" with no extra spaces
     (you should replace the `[filename]` with actual filename provided in the command line) and then exit with return 1.
 
 - **Important**: Upon any error, you should print the error message to stderr
