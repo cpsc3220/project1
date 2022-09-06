@@ -63,10 +63,8 @@ jobs:
       - name: download-artifact
         uses: actions/download-artifact@v2
 
-      - name: test-depend
+      - name: check-path
         run: |
-          ls -la ./test
-          ls -la ~/.local
           echo $PATH
           echo $LD_LIBRARY_PATH
           riscv64-unknown-elf-gcc --version
