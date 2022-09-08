@@ -8,7 +8,7 @@ The test cases uses python for testing the code. So, Python3 and pip is required
 ```
  pip install -r ./test/requirement.txt
 ```
-As pytest is not available in your PATH, you have to edit the bashrc file and add pytest to it. To do this:
+As pytest is not available in your `$PATH`, you have to edit the bashrc file and add pytest to it. To do this:
 ```
 nano ~/.bashrc 
 ```
@@ -16,13 +16,13 @@ Add the below line to the end of the file:
 ```
 export PATH="$HOME/.local/bin:$PATH"
 ```
-save the file and load the new `$PATH` into the current shell session using the source comman:
+save the file and load the new `$PATH` into the current shell session using the source command:
 ```
 source ~/.bashrc
 ``` 
 # 2. Testing code
 
-For part1A the test setupp always recompile the code and test using the files present in the testfiles folder.
+For part1A the test setup always recompile the code and test using the files present in the testfiles folder.
 To test part1A, run from project1 folder, the command:
 ```
 pytest ./test/test_p1a_git.py
