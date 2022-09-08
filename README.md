@@ -23,6 +23,10 @@ Then, log in to GitHub and go to [github.com/settings/ssh](https://github.com/se
 
 ## 1.3 RISC-V Development Tools
 In this course, you will work on several project on top of the [XV6 for RISC-V](https://github.com/mit-pdos/xv6-riscv) teaching operating system developed at MIT. To work with the RISC-V architecture on a X86 system, you'll need the RISC-V versions of a couple different tools: QEMU, GDB, GCC, and Binutils.
+Some machines in the lab have the tool-chain already installed. One can check for this by running the command:
+```
+which riscv64-unknown-elf-gcc
+```
 
 We have provided a bash script [install-riscv-tools.sh] which is included in the handout subdirectory. Simply run it under your home directory on any lab machine. You should see two generated directories: gnu and qemu. The script also does a simple test on the executables inside these directories. <!-- (https://github.com/cpsc3220/project1/blob/master/handout/install-riscv-tools.sh) which you can use to install these tools on a lab machine under your home directory.-->
 
@@ -55,9 +59,16 @@ This project consists two tasks:
 ## Task A: Text Sorting
 ## Task B: XV6 System Call
 
-You can find the descriptions and requirements for these two tasks in the TaskA and TaskB folders.
+You can find the descriptions and requirements for these two tasks in the TaskA and TaskB folders. 
 
-# 4. Submission
+# 4. Testing 
+
+For testing your assignments on local machine use the test cases provided, more information is available inside the test folder.\
+You can also see the testcases passed on your github repository page. If you go to the actions tab on the repo page, and click on the workflow, you will see the testcases passed.\
+More information about this will be provided.
+ 
+
+# 5. Submission
 
 To submit your work, do:
 
