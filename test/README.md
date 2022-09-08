@@ -8,10 +8,21 @@ The test cases uses python for testing the code. So, Python3 and pip is required
 ```
  pip install -r ./test/requirement.txt
 ```
-
+As pytest is not available in your PATH, you have to edit the bashrc file and add pytest to it. To do this:
+```
+nano ~/.bashrc 
+```
+Add the below line to the end of the file:
+```
+export PATH="$HOME/.local/bin:$PATH"
+```
+save the file and load the new `$PATH` into the current shell session using the source comman:
+```
+source ~/.bashrc
+``` 
 # 2. Testing code
 
-For part1A we always recompile the code and test using the files in folder testfiles.
+For part1A the test setupp always recompile the code and test using the files present in the testfiles folder.
 To test part1A, run from project1 folder, the command:
 ```
 pytest ./test/test_p1a_git.py
@@ -21,6 +32,6 @@ To test part1B, run from project1 folder, the command:
 pytest ./test/test_p1b_git.py
 ```
 
-For Part1A, we test the main functionality, Error cases and Edge cases as mentioned in the Part1A documentation.\
-For Part1B, we have added  a simple `testgetprocs.c` file in the user functions. The file create various process and call getprocs method to get all the processes.\
+For Part1A,the testcases test the main functionality, Error cases and Edge cases as mentioned in the Part1A documentation.\
+For Part1B, a simple `testgetprocs.c` file is added to the user functions. The file create various process and calls `getprocs()` method to get all the processes.\
 Pytest command shows a passed test case with `.` a Failed one with `F`. If the test cases fails, pytest will show the test function as well as the output it received after running the test command.
