@@ -24,7 +24,6 @@ jobs:
   set-up-test:
     name: set-up-test
     runs-on: ubuntu-latest
-    needs: get-test
     steps:
       - uses: actions/checkout@v3
       - name: cache-depend-check
