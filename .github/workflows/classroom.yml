@@ -8,18 +8,18 @@ permissions:
   contents: read
 
 jobs:
-  get-test:
-    name: get-test 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: ${{ secrets.REPO }}
-          token: ${{ secrets.ACCESS_TOKEN }}
-      - uses: actions/upload-artifact@v2
-        with:
-          name: test
-          path: .
+        #   get-test:
+        #     name: get-test 
+        #     runs-on: ubuntu-latest
+        #     steps:
+        #       - uses: actions/checkout@v3
+        #         with:
+        #           repository: ${{ secrets.REPO }}
+        #           token: ${{ secrets.ACCESS_TOKEN }}
+        #       - uses: actions/upload-artifact@v2
+        #         with:
+        #           name: test
+        #           path: .
 
   set-up-test:
     name: set-up-test
